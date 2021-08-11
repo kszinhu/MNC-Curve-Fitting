@@ -78,7 +78,11 @@ const infoButton = () => {
     `;
 };
 
+const clearInputs = () => {
+  [...document.querySelectorAll("table input")].map((el) => (el.value = ""));
+};
+
 const selectAll = () =>
-  Array.from(
-    document.querySelectorAll(".toggles li .toggle-control input")
-  ).map((el) => (el.checked = true));
+  [...document.querySelectorAll(".toggles li .toggle-control input")].map(
+    (el) => (el.checked = true)
+  );
