@@ -80,6 +80,7 @@ const infoButton = () => {
 
 /**
  * Function to get Points from Table.
+ * @returns { Object } { xy: [x, y], matrix: [[x], [y]] }
  */
 const getPoints = () => {
   let auxX = [],
@@ -103,6 +104,7 @@ const getPoints = () => {
 
 /**
  * Function to sort the X and Y points, according to X.
+ * @returns { Object } { x: [x], y: [y] }
  */
 const orderedPoints = () => {
   let { xy } = getPoints();
