@@ -79,6 +79,42 @@ const infoButton = () => {
 };
 
 /**
+ * Function to get Points from Table.
+ */
+const getPoints = () => {
+  let auxX = [],
+    auxY = [],
+    xy = [];
+
+  // "row[0].cells.length - 1" , equals the number of columns from 1
+  let row = document.getElementsByTagName("table")[0].rows;
+  for (let i = 1; i <= row[0].cells.length - 1; i++) {
+    auxX.push(row[1].cells[i].firstChild.value);
+    auxY.push(row[2].cells[i].firstChild.value);
+  }
+
+  // pairs x and y -> P(x,y)
+  auxX.forEach((element, index) => {
+    xy.push([element, auxY[index]]);
+  });
+
+  return { xy, matrix: [auxX, auxY] };
+};
+
+/**
+ * Function to sort the X and Y points, according to X.
+ */
+const orderedPoints = () => {
+  let { xy } = getPoints();
+
+  xy.sort((a, b) => a[0] - b[0]); // Sorting by x
+  let x = xy.map((element) => element[0]);
+  let y = xy.map((element) => element[1]);
+
+  return { x, y };
+};
+
+/**
  * Function to clear all point inputs of the points table.
  */
 const clearInputs = () => {
