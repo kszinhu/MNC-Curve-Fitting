@@ -4,6 +4,19 @@ div .title {
   align-items: center;
   padding: 20px; }
 
+div .sub-title {
+  display: flex;
+  align-items: center; }
+  div .sub-title > :nth-child(2) {
+    font-size: 1em;
+    font-weight: bold;
+    white-space: nowrap;
+    padding: 0 1em; }
+
+.line {
+  width: 100%;
+  border-bottom: 1px solid #ccc; }
+
 div::-webkit-scrollbar {
   height: 8px; }
 
