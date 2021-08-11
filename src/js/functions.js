@@ -77,3 +77,8 @@ const infoButton = () => {
     </div>
     `;
 };
+
+const selectAll = () =>
+  Array.from(
+    document.querySelectorAll(".toggles li .toggle-control input")
+  ).map((el) => (el.checked = true));
