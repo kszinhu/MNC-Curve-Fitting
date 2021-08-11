@@ -61,6 +61,9 @@ div::-webkit-scrollbar-thumb {
     height: 3em;
     margin: 0;
     font-weight: bold; }
+  .btn:disabled {
+    cursor: not-allowed;
+    background-color: #6296b8; }
 
 .content {
   margin: 0 0 1em 0;
