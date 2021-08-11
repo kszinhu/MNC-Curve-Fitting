@@ -33,6 +33,17 @@ div::-webkit-scrollbar-thumb {
   justify-content: center; }
   .buttons:last-child {
     margin: 0; }
+  .buttons > .btn {
+    font-weight: bold; }
+
+.select {
+  display: flex;
+  justify-content: space-between; }
+  .select > .buttons {
+    flex-direction: column;
+    margin: 1em 0; }
+    .select > .buttons > .btn {
+      margin: 0.5em 0; }
 
 .btn {
   color: #ffffff;

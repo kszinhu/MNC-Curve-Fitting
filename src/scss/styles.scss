@@ -41,6 +41,21 @@ div::-webkit-scrollbar-thumb {
   &:last-child {
     margin: 0;
   }
+  > .btn {
+    font-weight: bold;
+  }
+}
+
+.select {
+  display: flex;
+  justify-content: space-between;
+  > .buttons {
+    flex-direction: column;
+    margin: 1em 0;
+    > .btn {
+      margin: 0.5em 0;
+    }
+  }
 }
 
 .btn {
