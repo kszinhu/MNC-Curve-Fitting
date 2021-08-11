@@ -1,0 +1,22 @@
+{
+  "name": "mnc-curve-fitting",
+  "version": "1.0.0",
+  "description": "📚 - Métodos Numéricos Computacionais   👨‍🏫 - Marco Antônio Rahal Sacoman",
+  "main": "index.js",
+  "scripts": { 
+    "scss": "node-sass -w ./src/scss -o ./src/css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kszinhu/MNC-Curve-Fitting.git"
+  },
+  "author": "Cassiano Rodrigues, Matheus Ribeiro",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kszinhu/MNC-Curve-Fitting/issues"
+  },
+  "homepage": "https://github.com/kszinhu/MNC-Curve-Fitting#readme",
+  "dependencies": {
+    "node-sass": "^6.0.1"
+  }
+}

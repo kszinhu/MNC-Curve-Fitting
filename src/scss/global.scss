@@ -1,0 +1,111 @@
+:root {
+  --primary: #006eff;
+  --primary-dark: #003f92;
+  background-color: #111;
+  color: white;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+}
+
+input {
+  border: none;
+  background: #fafafa;
+  color: 000;
+  margin: 0 1em 0 0;
+  border-radius: 2px;
+  padding: 10px;
+  &:disabled {
+    background: #a8a8a8;
+    color: #fff;
+    cursor: not-allowed;
+    &::placeholder {
+      color: #f1f1f1;
+    }
+  }
+}
+
+button {
+  margin: 0 1em 0 0;
+}
+
+ul {
+  list-style: none;
+  margin: 1em;
+  overflow: auto;
+}
+
+.main {
+  width: 460px;
+  margin: 1em;
+}
+
+.chart {
+  display: none;
+  margin: 0 0 1em 0;
+  padding: 1em;
+  border-radius: 10px;
+  background-color: #eee;
+}
+
+.result {
+  display: none;
+  margin: 0 0 1em 0;
+  padding: 1em;
+  border-radius: 10px;
+  background-color: #eee;
+  & > div {
+    color: #111;
+  }
+}
+
+.buttons .container {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  border-radius: 2px;
+  padding: 0px 10px 0px 30px;
+  line-height: 30px;
+  background-color: #2196f3;
+  color: white;
+  user-select: none;
+  & input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+    &:checked ~ .checkmark:after {
+      display: block;
+    }
+  }
+  &:hover {
+    background-color: #0072be;
+  }
+  & .checkmark {
+    margin: 1px 2px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    &:after {
+      content: "";
+      position: absolute;
+      display: none;
+    }
+  }
+}
