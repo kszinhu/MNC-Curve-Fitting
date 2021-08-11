@@ -7,10 +7,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <link rel="stylesheet" href="./src/css/all.min.css">
   <link rel="stylesheet" href="./src/css/global.css">
   <link rel="stylesheet" href="./src/css/styles.css">
   <link rel="stylesheet" href="./src/css/toggles.css">
   <link rel="stylesheet" href="./src/css/modal.css">
+
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
   </script>
@@ -54,10 +56,6 @@
             </button>
           </div>
 
-          <!-- Info Button Text-->
-          <div id="text" style="display: none;"></div>
-
-
           <!-- Vector with points -->
           <div id="config-table" style="width: 100%; overflow: auto;">
             <div class="matrix" style="width: 100%; overflow: auto;">
@@ -100,6 +98,8 @@
                 <div class="buttons" style="flex-direction: column;">
                   <button class="btn" id="button-info" onclick="selectAll()">
                     <i class="fas fa-check-double"></i></button>
+                  <button class="btn" id="button-adjust" onclick="calculateAdjust()">
+                    <i class="far fa-function"></i></button>
                   <button class="btn" id="button-clear" onclick="genChart()" disabled>
                     <i class="fas fa-chart-line"></i></button>
                 </div>
@@ -121,7 +121,6 @@
 
   </div>
 
-  <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" data-auto-a11y="true"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/9.4.4/math.js"></script>
   <script src="./src/js/functions.js"></script>

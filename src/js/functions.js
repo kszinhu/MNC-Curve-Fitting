@@ -78,10 +78,16 @@ const infoButton = () => {
     `;
 };
 
+/**
+ * Function to clear all point inputs of the points table.
+ */
 const clearInputs = () => {
   [...document.querySelectorAll("table input")].map((el) => (el.value = ""));
 };
 
+/**
+ * Function to select all Toggle from curved lists.
+ */
 const selectAll = () =>
   [...document.querySelectorAll(".toggles li .toggle-control input")].map(
     (el) => (el.checked = true)
