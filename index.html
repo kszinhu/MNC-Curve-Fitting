@@ -36,7 +36,7 @@
       <!-- Options menu -->
       <div class="options-menu">
 
-        <!-- Essential settings -->
+        <!-- Feature Buttons -->
         <div class="config">
           <div class="input-menu">
             <input type="number" id="n" min="1" max="100" onchange="this.value = this.value.replace(/,/g, '.')"
@@ -44,26 +44,27 @@
           </div>
           <!-- Calculation Buttons -->
           <div class="buttons" style="display: inline-flex; width: 100%; align-items: center; margin-bottom: 1em;">
-            <button class="btn" id="button-info" onclick="infoButton()"><i class="fas fa-info-circle"></i></button>
-            <a href="https://en.wikipedia.org/wiki/Interpolation" target="__blank">
-              <button class="btn" id="button-docs" style="margin-right: 1em;"><i class="fas fa-file-alt"></i></button>
+             <!-- Info Button -->
+            <button class="button" id="button-info" onclick="infoButton()"><i class="fas fa-info-circle"></i></button>
+            <a href="https://pt.wikipedia.org/wiki/Ajuste_de_curvas" target="__blank">
+              <button class="button" id="button-docs" style="margin-right: 1em;"><i class="fas fa-file-alt"></i></button>
             </a>
-
-            <button class="btn" id="button-clear" onclick="clearInputs()"><i class="fas fa-trash"></i></button>
-            <button class="btn" id="button-calculate" onclick="calculate()" style="width: 50%;">
+            <!-- Clear all inputs Button -->
+            <button class="button" id="button-clear" onclick="clearInputs()"><i class="fas fa-trash"></i></button>
+            <!-- Calculate Button -->
+            <button class="button" id="button-calculate" onclick="calculate()" style="width: 50%;">
               <i class="fas fa-calculator"></i>
               Calcular
             </button>
           </div>
 
-          <!-- Vector with points -->
           <div id="config-table" style="width: 100%; overflow: auto;">
             <div class="matrix" style="width: 100%; overflow: auto;">
               <table id="table"></table>
             </div>
           </div>
-
-          <div class="radio-methods">
+           <!-- Toggle checked Methods -->
+          <div class="toggle-checked">
             <div>
               <div class="sub-title">
                 <div class="line"></div>
@@ -74,6 +75,7 @@
               <div class="select">
                 <ul class="toggles">
                   <li>
+                     <!-- Y = a+bx -->
                     <label class="toggle-control">
                       <input type="checkbox" checked>
                       <span class="control"></span>
@@ -81,6 +83,7 @@
                     </label>
                   </li>
                   <li>
+                     <!-- Y = ab^x -->
                     <label class="toggle-control">
                       <input type="checkbox">
                       <span class="control"></span>
@@ -88,6 +91,7 @@
                     </label>
                   </li>
                   <li>
+                     <!-- Y = ax^b -->
                     <label class="toggle-control">
                       <input type="checkbox">
                       <span class="control"></span>
@@ -95,19 +99,22 @@
                     </label>
                   </li>
                 </ul>
+                <!-- Select all -->
                 <div class="buttons" style="flex-direction: column;">
-                  <button class="btn" id="button-info" onclick="selectAll()">
-                    <i class="fas fa-check-double"></i></button>
-                  <button class="btn" id="button-adjust" onclick="calculateAdjust()">
+                  <button class="button" id="button-info" onclick="selectAll()">
+                    <i class="fas fa-check-double"></i></button> 
+                     <!-- Adjust function -->
+                  <button class="button" id="button-adjust" onclick="calculateAdjust()">
                     <i class="fas fa-function"></i></button>
-                  <button class="btn" id="button-clear" onclick="genChart()" disabled>
+                    <!-- Disabled genChart button-->
+                  <button class="button" id="button-clear" onclick="genChart()" disabled>
                     <i class="fas fa-chart-line"></i></button>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="radio-methods">
+          <div class="toggle-checked">
             <div>
               <div>
                 <div class="sub-title">
@@ -122,9 +129,9 @@
                     placeholder="Grau do Polinômio" style="width: 100%;" oninput="resize(); referencePoint();" />
                 </div>
                 <div class="buttons" style="flex-direction: row; justify-content: space-evenly;">
-                  <button class="btn" id="button-adjust" onclick="calculateAdjust()">
+                  <button class="button" id="button-adjust" onclick="calculateAdjust()">
                     <i class="fas fa-function"></i></button>
-                  <button class="btn" id="button-clear" onclick="genChart()" disabled>
+                  <button class="button" id="button-clear" onclick="genChart()" disabled>
                     <i class="fas fa-chart-line"></i></button>
                 </div>
               </div>
