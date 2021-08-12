@@ -127,17 +127,18 @@ div .options-menu {
   font-size: 16px;
   font-style: italic; }
 
-#result-content {
+.result-content {
   display: inline-flex;
-  justify-content: center;
+  justify-content: left;
   width: 100%;
   overflow: auto; }
-  #result-content .result-span {
+  .result-content .result-span {
     color: #ccc;
     margin: 5px;
     padding: 5px;
     background-color: #000;
-    border-radius: 5px; }
-    #result-content .result-span .result-label {
+    border-radius: 5px;
+    white-space: nowrap; }
+    .result-content .result-span .result-label {
       font-weight: bold;
       margin-right: 0.5em; }

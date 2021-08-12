@@ -247,16 +247,35 @@ const getDataPolynomial = () => {
   return data;
 };
 
-const showResultPolynomial = (arrayResult) => {
-  let result = document.querySelector(`#result-content`);
-  result.innerHTML = '';
+const showResult = (arrayResult, type) => {
+  document.querySelector(`#result-div`).innerHTML = `
+    <div class="sub-title">
+      <div class="line"></div>
+      <span>Resultados</span>
+      <div class="line"></div>
+    </div>
+    <div class="result-content"></div>
+  `;
+  let result = document.querySelector(`.result-content`);
 
-  arrayResult.forEach((el, index) => {
-    let newSpan = document.createElement("div");
-    newSpan.className = "result-span";
-    newSpan.innerHTML = `<span class="result-label">a[${index}]=</span><span>${el}</span>`;
-    result.appendChild(newSpan);
-  });
+  if (type == "polynomial") {
+    arrayResult.forEach((el, index) => {
+      let newSpan = document.createElement("div");
+      newSpan.className = "result-span";
+      newSpan.innerHTML = `<span class="result-label">a[${index}] =</span><span>${el}</span>`;
+      result.appendChild(newSpan);
+    });
+  } else if (type == "curve") {
+    arrayResult.forEach((el, index) => {
+      if (index == arrayResult.length) label = "R";
+      else index == 0 ? (label = "a") : (label = "b");
+
+      let newSpan = document.createElement("div");
+      newSpan.className = "result-span";
+      newSpan.innerHTML = `<span class="result-label">${label}</span><span>${el}</span>`;
+      result.appendChild(newSpan);
+    });
+  }
 
   document.querySelector("#result-div").style.display = "block";
 };

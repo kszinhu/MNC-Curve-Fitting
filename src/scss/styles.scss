@@ -156,9 +156,9 @@ div .options-menu {
   font-style: italic;
 }
 
-#result-content {
+.result-content {
   display: inline-flex;
-  justify-content: center;
+  justify-content: left;
   width: 100%;
   overflow: auto;
   & .result-span {
@@ -167,6 +167,7 @@ div .options-menu {
     padding: 5px;
     background-color: #000;
     border-radius: 5px;
+    white-space: nowrap;
     & .result-label {
       font-weight: bold;
       margin-right: 0.5em;
