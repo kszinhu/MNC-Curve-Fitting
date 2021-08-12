@@ -155,3 +155,21 @@ div .options-menu {
   font-size: 16px;
   font-style: italic;
 }
+
+#result-content {
+  display: inline-flex;
+  justify-content: center;
+  width: 100%;
+  overflow: auto;
+  & .result-span {
+    color: #ccc;
+    margin: 5px;
+    padding: 5px;
+    background-color: #000;
+    border-radius: 5px;
+    & .result-label {
+      font-weight: bold;
+      margin-right: 0.5em;
+    }
+  }
+}

@@ -78,10 +78,11 @@
                 </div>
                 <div class="buttons" style="flex-direction: row;">
                   <!-- Polynomial Adjust button -->
-                  <button class="btn button" id="button-adjust" onclick="polynomialAdjustment(document.querySelector('#grau').value)">
+                  <button class="btn button" id="button-adjust"
+                    onclick="showResultPolynomial(polynomialAdjustment(Number(document.querySelector('#grau').value)))">
                     <i class="fas fa-function"></i></button>
                   <!-- Chart button  -->
-                  <button class="btn button" id="button-clear" onclick="genChart()" disabled>
+                  <button class="btn button" id="button-clear" onclick="genChart(getDataPolynomial())">
                     <i class="fas fa-chart-line"></i></button>
                 </div>
               </div>
@@ -129,8 +130,7 @@
                   <button class="btn button" id="button-info" onclick="selectAll()">
                     <i class="fad fa-check-double"></i></button>
                   <!-- Adjust function -->
-                  <button class="btn button" id="button-adjust"
-                    onclick="CurveAdjust()">
+                  <button class="btn button" id="button-adjust" onclick="CurveAdjust()">
                     <i class="fas fa-function"></i></button>
                   <!-- Disabled genChart button-->
                   <button class="btn button" id="button-clear" onclick="genChart()" disabled>

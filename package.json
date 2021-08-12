@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "📚 - Métodos Numéricos Computacionais   👨‍🏫 - Marco Antônio Rahal Sacoman",
   "main": "index.js",
-  "scripts": { 
+  "scripts": {
     "scss": "node-sass -w ./src/scss -o ./src/css"
   },
   "repository": {
@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/kszinhu/MNC-Curve-Fitting#readme",
   "dependencies": {
+    "chart.js": "^3.5.0",
     "node-sass": "^6.0.1"
   }
 }

@@ -1,11 +1,6 @@
-function array_fill(i, n, v) {
-  var a = [];
-  for (; i < n; i++) {
-    a.push(v);
-  }
-  return a;
-}
-
+/**
+ * Gauss elimination method
+ */
 function gauss(A, x) {
   var abs = Math.abs;
 

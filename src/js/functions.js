@@ -78,6 +78,17 @@ const infoButton = () => {
     `;
 };
 
+const mathFunction = (input, x) =>
+  x.map((el) => math.evaluate(input, { x: el }));
+
+function array_fill(i, n, v) {
+  var a = [];
+  for (; i < n; i++) {
+    a.push(v);
+  }
+  return a;
+}
+
 /**
  * Function to get Points from Table.
  * @returns { Object } { xy: [x, y], matrix: [[x], [y]] }
@@ -133,6 +144,7 @@ const selectAll = () =>
 
 /**
  * Função da preguiça
+ * Function that fills the points table fields sequentially.
  */
 const laziness = () => {
   const inputs = [...document.querySelectorAll("table input")];
@@ -141,4 +153,110 @@ const laziness = () => {
   inputs
     .slice(inputs.length)
     .map((elem, idx) => (elem.value = inputs.length / 2 + idx));
+};
+
+/**
+ * Function that generates graphs.
+ * @param { info } object of the chart data.
+ */
+const genChart = (info) => {
+  const chartDiv = document.querySelector("#chart-div");
+  const chartCanvas = document.createElement("canvas");
+  chartCanvas.id = "chart";
+
+  if (chartDiv.firstChild) {
+    chartDiv.removeChild(chartDiv.firstChild);
+    chartDiv.removeChild(chartDiv.firstChild);
+    chartDiv.style.display = "none";
+  }
+  chartDiv.appendChild(chartCanvas);
+  chartDiv.style.display = "block";
+
+  const data = {
+    labels: info.x,
+    dataset: [
+      {
+        type: "scatter",
+        label: "Pontos da Amostra",
+        cubicInterpolationMode: "monotone",
+        backgroundColor: "#d12a2a",
+        data: info.sample,
+      },
+      {
+        type: "line",
+        label: "P" + info.degree + "(x)",
+        cubicInterpolationMode: "monotone",
+        borderColor: "#737373",
+        borderWidth: 1,
+        data: info.polynomial,
+        pointRadius: 0,
+      },
+    ],
+  };
+
+  const config = {
+    type: "line",
+    data: data,
+    options: {
+      responsive: true,
+      legend: {
+        position: "top",
+      },
+      plugins: {
+        title: {
+          display: true,
+          text: "Graphic of Interpolation",
+        },
+      },
+      interaction: {
+        intersect: false,
+      },
+      scale: {
+        ticks: {
+          beginAtZero: true,
+        },
+      },
+    },
+  };
+
+  const myChart = new Chart(chartCanvas, config);
+};
+
+/**
+ * Function that gets the data array.
+ * @returns array
+ */
+const getDataPolynomial = () => {
+  const n = document.getElementById("grau").value;
+  const { x, y } = orderedPoints();
+
+  const coefficients = polynomialAdjustment(n);
+  let fx = "";
+  coefficients.forEach((el, index, array) => {
+    index != array.length - 1
+      ? (fx += `${el}x^${index} + `)
+      : (fx += `${el}x^${index}`);
+  });
+  const data = {
+    degree: n,
+    x: x.map(String),
+    sample: y,
+    polynomial: mathFunction(fx, x),
+  };
+
+  return data;
+};
+
+const showResultPolynomial = (arrayResult) => {
+  let result = document.querySelector(`#result-content`);
+  result.innerHTML = '';
+
+  arrayResult.forEach((el, index) => {
+    let newSpan = document.createElement("div");
+    newSpan.className = "result-span";
+    newSpan.innerHTML = `<span class="result-label">a[${index}]=</span><span>${el}</span>`;
+    result.appendChild(newSpan);
+  });
+
+  document.querySelector("#result-div").style.display = "block";
 };
