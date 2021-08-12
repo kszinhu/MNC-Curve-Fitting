@@ -110,8 +110,8 @@ const orderedPoints = () => {
   let { xy } = getPoints();
 
   xy.sort((a, b) => a[0] - b[0]); // Sorting by x
-  let x = xy.map((element) => element[0]);
-  let y = xy.map((element) => element[1]);
+  let x = xy.map((element) => Number(element[0]));
+  let y = xy.map((element) => Number(element[1]));
 
   return { x, y };
 };

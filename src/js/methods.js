@@ -5,9 +5,6 @@ const compactGauss = (A, b, n) => {
       console.log(
         "O sistema é impossível de ser resolvido pelo método de gauss compacto pois o pivo é zero"
       );
-      alert(
-        "O sistema é impossível de ser resolvido pelo método de gauss compacto pois o pivo é zero"
-      );
       return;
     }
     for (let j = i + 1; j < n; j++) {
