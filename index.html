@@ -45,12 +45,12 @@
           <!-- Calculation Buttons -->
           <div class="buttons" style="display: inline-flex; width: 100%; align-items: center; margin-bottom: 1em;">
              <!-- Info Button -->
-            <button class="button" id="button-info" onclick="infoButton()"><i class="fas fa-info-circle"></i></button>
+            <button class="btn button" id="button-info" onclick="infoButton()"><i class="fas fa-info-circle"></i></button>
             <a href="https://pt.wikipedia.org/wiki/Ajuste_de_curvas" target="__blank">
-              <button class="button" id="button-docs" style="margin-right: 1em;"><i class="fas fa-file-alt"></i></button>
+              <button class="btn button" id="button-docs" style="margin-right: 1em;"><i class="fas fa-file-alt"></i></button>
             </a>
             <!-- Clear all inputs Button -->
-            <button class="button" id="button-clear" onclick="clearInputs()"><i class="fas fa-trash"></i></button>
+            <button class="btn button" id="button-clear" onclick="clearInputs()"><i class="fas fa-trash"></i></button>
           </div>
 
           <div id="config-table" style="width: 100%; overflow: auto;">
@@ -96,13 +96,13 @@
                 </ul>
                 <!-- Select all -->
                 <div class="buttons" style="flex-direction: column;">
-                  <button class="button" id="button-info" onclick="selectAll()">
+                  <button class="btn button" id="button-info" onclick="selectAll()">
                     <i class="fas fa-check-double"></i></button> 
                      <!-- Adjust function -->
-                  <button class="button" id="button-adjust" onclick="calculateAdjust()">
+                  <button class="btn button" id="button-adjust" onclick="calculateAdjust()">
                     <i class="fas fa-function"></i></button>
                     <!-- Disabled genChart button-->
-                  <button class="button" id="button-clear" onclick="genChart()" disabled>
+                  <button class="btn button" id="button-clear" onclick="genChart()" disabled>
                     <i class="fas fa-chart-line"></i></button>
                 </div>
               </div>
@@ -124,9 +124,9 @@
                     placeholder="Grau do Polinômio" style="width: 100%;" />
                 </div>
                 <div class="buttons" style="flex-direction: row; justify-content: space-evenly;">
-                  <button class="button" id="button-adjust" onclick="calculateAdjust()">
+                  <button class="btn button" id="button-adjust" onclick="calculateAdjust()">
                     <i class="fas fa-function"></i></button>
-                  <button class="button" id="button-clear" onclick="genChart()" disabled>
+                  <button class="btn button" id="button-clear" onclick="genChart()" disabled>
                     <i class="fas fa-chart-line"></i></button>
                 </div>
               </div>

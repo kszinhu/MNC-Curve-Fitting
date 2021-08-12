@@ -33,18 +33,19 @@ div::-webkit-scrollbar-thumb {
   justify-content: center; }
   .buttons:last-child {
     margin: 0; }
-  .buttons > .button {
+  .buttons > .btn {
     font-weight: bold; }
 
 .select {
   display: flex;
   justify-content: space-between; }
   .select > .buttons {
-    flex-direction: column; }
-    .select > .buttons > .button {
-      margin: 0.5em 0; }
+    flex-direction: column;
+    margin: 1em 0; }
+    .select > .buttons > .btn {
+      margin: 0.5em; }
 
-.button {
+.btn {
   color: #ffffff;
   background-color: #0099ff;
   border: none;
@@ -53,14 +54,14 @@ div::-webkit-scrollbar-thumb {
   font-size: 16px;
   text-align: center;
   cursor: pointer; }
-  .button:hover {
+  .btn:hover {
     background-color: #0072be; }
-  .button.submit {
+  .btn.submit {
     width: 100%;
     height: 3em;
     margin: 0;
     font-weight: bold; }
-  .button:disabled {
+  .btn:disabled {
     cursor: not-allowed;
     background-color: #86b5d4; }
 
@@ -89,9 +90,9 @@ div::-webkit-scrollbar-thumb {
   -ms-transform: rotate(45deg);
   transform: rotate(45deg); }
 
-.toggle-checked {
+.radio-methods {
   margin: 1em 0; }
-  .toggle-checked li {
+  .radio-methods li {
     display: flex;
     align-items: center; }
 
