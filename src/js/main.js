@@ -1,5 +1,7 @@
 const f_one_adjustment = (n) => gauss(getA(n), getB(n));
 
+const polynomialAdjustment = (n) => gauss(getA(n + 1), getB(n + 1));
+
 const getA = (n) => {
   const { x, y } = orderedPoints();
   let a = [];
@@ -27,7 +29,7 @@ const getB = (n) => {
   for (let i = 0; i < n; i++) {
     b[i] = 0;
     for (let j = 0; j < y.length; j++) {
-      b[i] += (x[j]) ** i * y[j];
+      b[i] += x[j] ** i * y[j];
     }
   }
   return b;

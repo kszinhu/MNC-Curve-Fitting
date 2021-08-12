@@ -40,14 +40,16 @@
         <div class="config">
           <div class="input-menu">
             <input type="number" id="n" min="1" max="100" onchange="this.value = this.value.replace(/,/g, '.')"
-              placeholder="Tamanho da amostra" style="width: 100%;" oninput="resize();" />
+              placeholder="Quantidade de Pontos" style="width: 100%;" oninput="resize();" />
           </div>
           <!-- Calculation Buttons -->
           <div class="buttons" style="display: inline-flex; width: 100%; align-items: center; margin-bottom: 1em;">
-             <!-- Info Button -->
-            <button class="btn button" id="button-info" onclick="infoButton()"><i class="fas fa-info-circle"></i></button>
+            <!-- Info Button -->
+            <button class="btn button" id="button-info" onclick="infoButton()"><i
+                class="fas fa-info-circle"></i></button>
             <a href="https://pt.wikipedia.org/wiki/Ajuste_de_curvas" target="__blank">
-              <button class="btn button" id="button-docs" style="margin-right: 1em;"><i class="fas fa-file-alt"></i></button>
+              <button class="btn button" id="button-docs" style="margin-right: 1em;"><i
+                  class="fas fa-file-alt"></i></button>
             </a>
             <!-- Clear all inputs Button -->
             <button class="btn button" id="button-clear" onclick="clearInputs()"><i class="fas fa-trash"></i></button>
@@ -58,58 +60,9 @@
               <table id="table"></table>
             </div>
           </div>
-           <!-- Toggle checked Methods -->
-          <div class="toggle-checked">
-            <div>
-              <div class="sub-title">
-                <div class="line"></div>
-                <span class="divider-methods">Ajustes de Outras Curvas</span>
-                <div class="line"></div>
-              </div>
-              <!-- Default: SISTEMA LINEAR -->
-              <div class="select">
-                <ul class="toggles">
-                  <li>
-                     <!-- Y = a+bx -->
-                    <label class="toggle-control">
-                      <input type="checkbox" checked>
-                      <span class="control"></span>
-                      <span class="function">\[Y = a+bx\]</span>
-                    </label>
-                  </li>
-                  <li>
-                     <!-- Y = ab^x -->
-                    <label class="toggle-control">
-                      <input type="checkbox">
-                      <span class="control"></span>
-                      <span class="function">\[Y = ab^x\]</span>
-                    </label>
-                  </li>
-                  <li>
-                     <!-- Y = ax^b -->
-                    <label class="toggle-control">
-                      <input type="checkbox">
-                      <span class="control"></span>
-                      <span class="function">\[Y = ax^b\]</span>
-                    </label>
-                  </li>
-                </ul>
-                <div class="buttons" style="flex-direction: column;">
-                  <!-- Select All button -->
-                  <button class="btn button" id="button-info" onclick="selectAll()">
-                    <i class="fad fa-check-double"></i></button> 
-                     <!-- Adjust function -->
-                  <button class="btn button" id="button-adjust" onclick="calculateAdjust()">
-                    <i class="fas fa-function"></i></button>
-                    <!-- Disabled genChart button-->
-                  <button class="btn button" id="button-clear" onclick="genChart()" disabled>
-                    <i class="fas fa-chart-line"></i></button>
-                </div>
-              </div>
-            </div>
-          </div>
 
-          <div class="toggle-checked">
+          <!-- Polynomial adjustment section -->
+          <div class="polynomial-adjustment">
             <div>
               <div>
                 <div class="sub-title">
@@ -124,14 +77,69 @@
                     placeholder="Grau do Polinômio" style="width: 100%;" />
                 </div>
                 <div class="buttons" style="flex-direction: row;">
-                  <button class="btn button" id="button-adjust" onclick="calculateAdjust()">
+                  <!-- Polynomial Adjust button -->
+                  <button class="btn button" id="button-adjust" onclick="polynomialAdjustment(document.querySelector('#grau').value)">
                     <i class="fas fa-function"></i></button>
+                  <!-- Chart button  -->
                   <button class="btn button" id="button-clear" onclick="genChart()" disabled>
                     <i class="fas fa-chart-line"></i></button>
                 </div>
               </div>
             </div>
           </div>
+
+          <!-- Toggle checked Methods -->
+          <div class="toggle-checked">
+            <div>
+              <div class="sub-title">
+                <div class="line"></div>
+                <span class="divider-methods">Ajustes de Outras Curvas</span>
+                <div class="line"></div>
+              </div>
+              <div class="select">
+                <!-- Default: Y = a + bx -->
+                <ul class="toggles">
+                  <li>
+                    <!-- Y = a+bx -->
+                    <label class="toggle-control">
+                      <input type="checkbox" checked>
+                      <span class="control"></span>
+                      <span class="function">\[Y = a+bx\]</span>
+                    </label>
+                  </li>
+                  <li>
+                    <!-- Y = ab^x -->
+                    <label class="toggle-control">
+                      <input type="checkbox">
+                      <span class="control"></span>
+                      <span class="function">\[Y = ab^x\]</span>
+                    </label>
+                  </li>
+                  <li>
+                    <!-- Y = ax^b -->
+                    <label class="toggle-control">
+                      <input type="checkbox">
+                      <span class="control"></span>
+                      <span class="function">\[Y = ax^b\]</span>
+                    </label>
+                  </li>
+                </ul>
+                <div class="buttons" style="flex-direction: column;">
+                  <!-- Select All button -->
+                  <button class="btn button" id="button-info" onclick="selectAll()">
+                    <i class="fad fa-check-double"></i></button>
+                  <!-- Adjust function -->
+                  <button class="btn button" id="button-adjust"
+                    onclick="CurveAdjust()">
+                    <i class="fas fa-function"></i></button>
+                  <!-- Disabled genChart button-->
+                  <button class="btn button" id="button-clear" onclick="genChart()" disabled>
+                    <i class="fas fa-chart-line"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
 
       </div>
