@@ -130,3 +130,15 @@ const selectAll = () =>
   [...document.querySelectorAll(".toggles li .toggle-control input")].map(
     (el) => (el.checked = !el.checked)
   );
+
+/**
+ * Função da preguiça
+ */
+const laziness = () => {
+  const inputs = [...document.querySelectorAll("table input")];
+  document.querySelector("#grau").value = inputs.length / 2;
+  inputs.slice(0, inputs.length).map((elem, idx) => (elem.value = idx + 1));
+  inputs
+    .slice(inputs.length)
+    .map((elem, idx) => (elem.value = inputs.length / 2 + idx));
+};

@@ -1,16 +1,14 @@
-const polynomialAdjustment = () =>
-  compactGauss(getA(), getB(), parseInt(document.querySelector("#grau").value));
+const f_one_adjustment = (n) => gauss(getA(n), getB(n));
 
-const getA = () => {
+const getA = (n) => {
   const { x, y } = orderedPoints();
-  const n = parseInt(document.querySelector("#grau").value);
   let a = [];
 
   for (let i = 0; i < n; i++) {
     a.push([]);
     for (let j = 0; j < n; j++) {
       if (i == 0 && j == 0) {
-        a[0][0] = n;
+        a[0][0] = x.length;
       } else if (i == 0) {
         a[i][j] = x.reduce((acc, curr) => acc + Math.pow(curr, j), 0);
       } else {
@@ -22,17 +20,15 @@ const getA = () => {
   return a;
 };
 
-const getB = () => {
+const getB = (n) => {
   const { x, y } = orderedPoints();
-  const n = parseInt(document.querySelector("#grau").value);
   let b = [];
 
   for (let i = 0; i < n; i++) {
-    if (i == 0) b[0] = y.reduce((acc, curr) => acc + curr, 0);
-    else
-      b[i] =
-        x.reduce((acc, curr) => acc + Math.pow(curr, i), 0) *
-        y.reduce((acc, curr) => acc + curr, 0);
+    b[i] = 0;
+    for (let j = 0; j < y.length; j++) {
+      b[i] += (x[j]) ** i * y[j];
+    }
   }
   return b;
 };
