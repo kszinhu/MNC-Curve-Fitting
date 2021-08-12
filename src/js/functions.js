@@ -128,5 +128,5 @@ const clearInputs = () => {
  */
 const selectAll = () =>
   [...document.querySelectorAll(".toggles li .toggle-control input")].map(
-    (el) => (el.checked = true)
+    (el) => (el.checked = !el.checked)
   );
