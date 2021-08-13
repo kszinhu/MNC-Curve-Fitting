@@ -297,19 +297,80 @@ const curvesAdjust = () => {
   onlySelects.forEach((el) => {
     switch (el) {
       case 1:
-        showResult(f_one_adjustment(2), "curve");
+        showResult(curveAdjustment(2), "curve");
         break;
 
       case 2:
-        showResult(f_one_adjustment(2), "curve");
+        showResult(curveAdjustment(2), "curve");
         break;
 
       case 3:
-        showResult(f_one_adjustment(2), "curve");
+        showResult(curveAdjustment(2), "curve");
         break;
 
       default:
         break;
     }
   });
+};
+
+/**
+ * Function to get matrix A for adjustment
+ * @param { number } degree grade of the polynomial.
+ * @return { array } matrix A.
+ */
+const getA = (n) => {
+  const { x } = orderedPoints();
+  let a = [];
+
+  for (let i = 0; i < n; i++) {
+    a.push([]);
+    for (let j = 0; j < n; j++) {
+      if (i == 0 && j == 0) {
+        a[0][0] = x.length;
+      } else if (i == 0) {
+        a[i][j] = x.reduce((acc, curr) => acc + Math.pow(curr, j), 0);
+      } else {
+        a[i][j] = x.reduce((acc, curr) => acc + Math.pow(curr, i + j), 0);
+      }
+    }
+  }
+
+  return a;
+};
+
+/**
+ * Function to get vector B for adjustment
+ * @param { number } degree grade of the polynomial.
+ * @return { array } vector B.
+ */
+const getB = (n) => {
+  const { x, y } = orderedPoints();
+  let b = [];
+
+  for (let i = 0; i < n; i++) {
+    b[i] = 0;
+    for (let j = 0; j < y.length; j++) {
+      b[i] += x[j] ** i * y[j];
+    }
+  }
+  return b;
+};
+
+/**
+ * Function to calculate the determination coefficient
+ * @param { number } degree grade of the polynomial.
+ * @return { number } value of R.
+ */
+const getR = (n) => {
+  const data = getDataPolynomial(n);
+
+  const sumy2 = data.sample.reduce((acc, curr) => acc + curr ** 2, 0);
+  const sumy = data.sample.reduce((acc, curr) => acc + curr, 0);
+  const ybar = data.polynomial;
+  const sume2 = data.sample
+    .map((y, i) => (y - ybar[i]) ** 2)
+    .reduce((acc, curr) => acc + curr, 0);
+
+  return 1 - (data.x.length * sume2) / (data.x.length * sumy2 - sumy ** 2);
 };
