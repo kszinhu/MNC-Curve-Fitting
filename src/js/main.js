@@ -1,6 +1,10 @@
 const polynomialAdjustment = (n) => gauss(getA(n), getB(n));
 
-const f_one_adjustment = (n) => gauss(getA(n + 1), getB(n + 1));
+const f_one_adjustment = (n) => {
+  let aux = gauss(getA(n), getB(n));
+  aux.push(getR(n));
+  return aux;
+}
 
 const getA = (n) => {
   const { x, y } = orderedPoints();
@@ -33,4 +37,17 @@ const getB = (n) => {
     }
   }
   return b;
+};
+
+const getR = (n) => {
+  const data = getDataPolynomial(n);
+
+  const sumy2 = data.sample.reduce((acc, curr) => acc + curr ** 2, 0);
+  const sumy = data.sample.reduce((acc, curr) => acc + curr, 0);
+  const ybar = data.polynomial;
+  const sume2 = data.sample
+    .map((y, i) => (y - ybar[i]) ** 2)
+    .reduce((acc, curr) => acc + curr, 0);
+
+  return 1 - (data.x.length * sume2) / (data.x.length * sumy2 - sumy ** 2);
 };

@@ -78,9 +78,16 @@ const infoButton = () => {
     `;
 };
 
-const mathFunction = (input, x) =>
-  x.map((el) => math.evaluate(input, { x: el }));
+/**
+ * Function that calculates a mathematical function.
+ * @param { Input } string mathematics.
+ * @param { x } array of x points.
+ */
+const mathFunction = (input, x) => {
+  return x.map((el) => math.evaluate(input, { x: el }));
+};
 
+// Fills array from i to n with v
 function array_fill(i, n, v) {
   var a = [];
   for (; i < n; i++) {
@@ -174,22 +181,23 @@ const genChart = (info) => {
 
   const data = {
     labels: info.x,
-    dataset: [
+    datasets: [
       {
         type: "scatter",
         label: "Pontos da Amostra",
-        cubicInterpolationMode: "monotone",
-        backgroundColor: "#d12a2a",
+        backgroundColor: "#D12A2A",
+        borderColor: "#B01717",
+        borderWidth: 3,
         data: info.sample,
       },
       {
         type: "line",
-        label: "P" + info.degree + "(x)",
+        label: `P${info.degree}(x)`,
+        borderColor: "#2196F3",
+        backgroundColor: "#2196F3",
+        borderWidth: 2,
         cubicInterpolationMode: "monotone",
-        borderColor: "#737373",
-        borderWidth: 1,
         data: info.polynomial,
-        pointRadius: 0,
       },
     ],
   };
@@ -205,10 +213,11 @@ const genChart = (info) => {
       plugins: {
         title: {
           display: true,
-          text: "Graphic of Interpolation",
+          text: "Adjustment chart",
         },
       },
       interaction: {
+        mode: "index",
         intersect: false,
       },
       scale: {
@@ -219,15 +228,14 @@ const genChart = (info) => {
     },
   };
 
-  const myChart = new Chart(chartCanvas, config);
+  new Chart(chartCanvas, config);
 };
 
 /**
  * Function that gets the data array.
  * @returns array
  */
-const getDataPolynomial = () => {
-  const n = document.getElementById("grau").value;
+const getDataPolynomial = (n) => {
   const { x, y } = orderedPoints();
 
   const coefficients = polynomialAdjustment(n);
@@ -238,15 +246,21 @@ const getDataPolynomial = () => {
       : (fx += `${el}x^${index}`);
   });
   const data = {
-    degree: n,
-    x: x.map(String),
+    degree: Number(n),
+    x,
     sample: y,
+    fx,
     polynomial: mathFunction(fx, x),
   };
 
   return data;
 };
 
+/**
+ * Function to show the result obtained
+ * @param { arrayResult } array data.
+ * @param { type } string type.
+ */
 const showResult = (arrayResult, type) => {
   document.querySelector(`#result-div`).innerHTML = `
     <div class="sub-title">
