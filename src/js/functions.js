@@ -275,9 +275,11 @@ const showResult = (arrayResult, type) => {
       result.appendChild(newSpan);
     });
   } else if (type == "curve") {
+    console.log("arrayResult" + arrayResult);
     arrayResult.forEach((el, index) => {
-      if (index == arrayResult.length) label = "R";
-      else index == 0 ? (label = "a") : (label = "b");
+      if (index == 0) label = "a";
+      else if (index == 1) label = "b";
+      else if (index == 2) label = "R";
 
       let newSpan = document.createElement("div");
       newSpan.className = "result-span";
