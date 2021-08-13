@@ -146,7 +146,7 @@ const clearInputs = () => {
  */
 const selectAll = () =>
   [...document.querySelectorAll(".toggles li .toggle-control input")].map(
-    (el) => (el.checked = !el.checked)
+    (el) => !el.disabled && (el.checked = !el.checked)
   );
 
 /**
@@ -170,7 +170,7 @@ const genChart = (info) => {
   const chartDiv = document.querySelector("#chart-div");
   const chartCanvas = document.createElement("canvas");
   chartCanvas.id = "chart";
-  chartDiv.innerHTML = '';
+  chartDiv.innerHTML = "";
   chartDiv.appendChild(chartCanvas);
   chartDiv.style.display = "block";
 
@@ -287,4 +287,29 @@ const showResult = (arrayResult, type) => {
   }
 
   document.querySelector("#result-div").style.display = "block";
+};
+
+const curvesAdjust = () => {
+  const onlySelects = [...document.querySelectorAll(".toggle-control input")]
+    .map((el) => el.checked && Number(el.value))
+    .filter(Boolean);
+
+  onlySelects.forEach((el) => {
+    switch (el) {
+      case 1:
+        showResult(f_one_adjustment(2), "curve");
+        break;
+
+      case 2:
+        showResult(f_one_adjustment(2), "curve");
+        break;
+
+      case 3:
+        showResult(f_one_adjustment(2), "curve");
+        break;
+
+      default:
+        break;
+    }
+  });
 };
