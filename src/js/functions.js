@@ -170,12 +170,7 @@ const genChart = (info) => {
   const chartDiv = document.querySelector("#chart-div");
   const chartCanvas = document.createElement("canvas");
   chartCanvas.id = "chart";
-
-  if (chartDiv.firstChild) {
-    chartDiv.removeChild(chartDiv.firstChild);
-    chartDiv.removeChild(chartDiv.firstChild);
-    chartDiv.style.display = "none";
-  }
+  chartDiv.innerHTML = '';
   chartDiv.appendChild(chartCanvas);
   chartDiv.style.display = "block";
 
